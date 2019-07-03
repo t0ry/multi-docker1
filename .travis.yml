@@ -1,0 +1,22 @@
+sudo: required
+services: 
+ - docker
+
+before_install: 
+ - docker build -t tory00b/client-test -f ./client/Dockerfile.dev ./client
+
+script: 
+ - docker run tory00b/client-test npm test -- --coverage
+
+after_success:
+ - docker build -t tory00b/multi-client ./client
+ - docker build -t tory00b/multi-server ./server
+ - docker build -t tory00b/multi-worker ./worker
+ - docker build -t tory00b/multi-nginx ./nginx
+ - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+ - docker push tory00b/multi-client
+ - docker push tory00b/multi-server
+ - docker push tory00b/multi-worker
+ - docker push tory00b/multi-nginx
+
+
