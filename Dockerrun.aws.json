@@ -1,0 +1,35 @@
+{
+ "AWSEBDuckerrunVersion": 2,
+ "containerDefinitions": [
+   {
+     "name": "client",
+     "image": "tory00b/multu-client",
+     "hostname": "client",
+     "essential" : fasle
+   },
+   {
+     "name": "server",
+     "image": "tory00b/multu-server",
+     "hostname": "api",
+     "essential": fasle
+  },
+  {
+     "name": "worker",
+     "image": "tory00b/multu-worker",
+     "hostname": "worker",
+     "essential": fasle
+  
+  },
+  {
+     "name": "nginx",
+     "image": "tory00b/multu-nginx",
+     "essential": true,
+     "portMappings": [{
+        "hostPort": 80,
+        "containerPort": 80
+      }],
+      "links": ["client", "server"]
+
+   }
+ ]
+}
