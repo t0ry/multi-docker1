@@ -5,19 +5,19 @@
      "name": "client",
      "image": "tory00b/multu-client",
      "hostname": "client",
-     "essential" : fasle
+     "essential" : false
    },
    {
      "name": "server",
      "image": "tory00b/multu-server",
      "hostname": "api",
-     "essential": fasle
+     "essential": false
   },
   {
      "name": "worker",
      "image": "tory00b/multu-worker",
      "hostname": "worker",
-     "essential": fasle
+     "essential": false
   
   },
   {
