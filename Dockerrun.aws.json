@@ -3,21 +3,21 @@
  "containerDefinitions": [
    {
      "name": "client",
-     "image": "tory00b/multu-client",
+     "image": "tory00b/multi-client",
      "hostname": "client",
      "essential" : false,
      "memory": 128
    },
    {
      "name": "server",
-     "image": "tory00b/multu-server",
+     "image": "tory00b/multi-server",
      "hostname": "api",
      "essential": false,
      "memory": 128
   },
   {
      "name": "worker",
-     "image": "tory00b/multu-worker",
+     "image": "tory00b/multi-worker",
      "hostname": "worker",
      "essential": false,
      "memory": 128
@@ -25,7 +25,7 @@
   },
   {
      "name": "nginx",
-     "image": "tory00b/multu-nginx",
+     "image": "tory00b/multi-nginx",
      "essential": true,
      "portMappings": [{
         "hostPort": 80,
